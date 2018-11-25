@@ -9,7 +9,9 @@ class TodoList extends Component {
       <TodoItem
         key={todo.id}
         done={todo.done}
-        onToggle={() => onToggle(todo.id)}
+        onToggle={() => {
+          onToggle(todo.id);
+        }}
       >
         {todo.text}
       </TodoItem>

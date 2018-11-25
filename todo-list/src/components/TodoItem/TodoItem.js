@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import styles from "./TodoItem.scss";
-import classNames from "classnames/bind";
+import classNames from "classnames";
 
 const cx = classNames.bind(styles);
 
