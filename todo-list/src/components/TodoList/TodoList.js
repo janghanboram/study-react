@@ -2,9 +2,12 @@ import React, { Component } from "react";
 import TodoItem from "../TodoItem";
 
 class TodoList extends Component {
+shouldComponentUpdate(nextProps, nextState){
+    return this.props.todos !== nextProps.todos;
+}
   render() {
-    const { todos, onToggle } = this.props;
-
+    const { todos, onToggle, onRemove, onTriggerEdit } = this.props;
+    // const { todos, onToggle, onRemove, onTriggerEdit, onEdit } = this.props;
     const todoList = todos.map(todo => (
       <TodoItem
         key={todo.id}
@@ -12,6 +15,17 @@ class TodoList extends Component {
         onToggle={() => {
           onToggle(todo.id);
         }}
+        onRemove={() => {
+          onRemove(todo.id);
+        }}
+        onTriggerEdit={() => {
+          onTriggerEdit(todo.id);
+        }}
+        // onEdit={
+        //     ()=>{
+        //         onEdit(todo.id)
+        //     }
+        // }
       >
         {todo.text}
       </TodoItem>

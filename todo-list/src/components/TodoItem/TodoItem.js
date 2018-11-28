@@ -1,22 +1,35 @@
-import React, { Component } from "react";
-import styles from "./TodoItem.scss";
-import classNames from "classnames";
+import React, { Component } from 'react';
+import styles from './TodoItem.scss'
+import classNames from 'classnames'
 
-const cx = classNames.bind(styles);
+const cx = classNames.bind(styles)
 
 class TodoItem extends Component {
-  render() {
-      const {done, children, onToggle, onRemove} = this.props;
+    shouldComponentUpdate(nextProps, nextState){
+        return this.props.done !== nextProps.done;
+    }
+    render() {
+        const { done, children, onToggle, onRemove} = this.props;
+        // const { done, children, onToggle, onRemove, onTriggerEdit } = this.props;
 
-      return(
-          <div className={cx('todo-item')} onClick={onToggle}>
-            <input className={cx('tick')} type="checkbox" checked={done} readOnly/>
-            <div className={cx('text',{done})}>
-                {children}
+        return (
+            <div className={cx('todo-item')} onClick={onToggle}>
+                <input className={cx('tick')} type="checkbox" checked={done} readOnly/>
+                <div className={cx('text',{done})}>{children}</div>
+                <div className={cx('delete')} onClick={(e)=>{
+                    onRemove();
+                    e.stopPropagation();
+                }}>[지우기]</div>
+                <div className={cx('edit')} 
+                // onClick={(e)=>{
+                //     onTriggerEdit();
+                //     e.stopPropagation();
+                // }}
+                >
+                [수정하기]</div>
             </div>
-            <div className={cx('delete')} onClick={onRemove}>[지우기]</div>
-          </div>
-      )
-  }
+        );
+    }
 }
+
 export default TodoItem;
