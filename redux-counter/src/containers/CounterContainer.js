@@ -27,8 +27,9 @@ export function getRandomColor() {
 // state를 받아, 컴포넌트의 props로 사용할 객체를 반환한다.
 const mapStateToProps = state => {
   return {
-    color: state.color,
-    number: state.number
+    //단일 리듀서 => 복합 리듀서가 되면서 store가 가진 상태 구조가 바뀌었음.
+    color: state.colorData.color,
+    number: state.numberData.number
   };
 };
 
