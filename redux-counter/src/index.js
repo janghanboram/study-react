@@ -13,7 +13,7 @@ import { Provider } from 'react-redux'
 const store = createStore(reducers)
 
 ReactDOM.render(
-  <Provider stroe={store}>
+  <Provider store={store}>
     <App />
   </Provider>,
   document.getElementById("root")

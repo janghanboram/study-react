@@ -12,7 +12,7 @@ const Counter = ({ number, color, onIncrement, onDecrement, onSetColor }) => {
         onDecrement();
       }}
       onDoubleClick={onSetColor}
-      style={{ backgroundcolor: 'black' }}
+      style={{ backgroundcolor: color }}
     >
       {number}
     </div>
