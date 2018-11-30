@@ -12,7 +12,7 @@ const Counter = ({ number, color, onIncrement, onDecrement, onSetColor }) => {
         onDecrement();
       }}
       onDoubleClick={onSetColor}
-      style={{ backgroundcolor: color }}
+      style={{ backgroundColor: color }}
     >
       {number}
     </div>
@@ -30,15 +30,9 @@ Counter.propTypes = {
 Counter.defaultProps = {
   number: 0,
   color: "black",
-  onIncrement: () => {
-    console.warn("onIncrement not defined");
-  },
-  onDecrement: () => {
-    console.warn("onDecrement not defined");
-  },
-  onSetColor: () => {
-    console.warn("onSetColor not defined");
-  }
+  onIncrement: () => console.warn("onIncrement not defined"),
+  onDecrement: () => console.warn("onDecrement not defined"),
+  onSetColor: () => console.warn("onSetColor not defined")
 };
 
 export default Counter;
