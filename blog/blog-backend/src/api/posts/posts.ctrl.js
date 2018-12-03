@@ -5,6 +5,11 @@ const posts = [
     id: 1,
     title: "제목",
     body: "내용"
+  },
+  {
+    id: 2,
+    title: "제목",
+    body: "내용"
   }
 ];
 
@@ -37,7 +42,7 @@ exports.list = ctx => {
     GET /api/posts/:id
  */
 exports.read = ctx => {
-  const { id } = ctx.request.body;
+  const { id } = ctx.params;
   // 해당 ID의 post를 찾는다.
   const post = posts.find(p => p.id.toString() === id);
 
@@ -49,7 +54,8 @@ exports.read = ctx => {
     return;
   }
 
-  ctx.body = id;
+  ctx.body= post;
+
 };
 
 /*
@@ -57,7 +63,7 @@ exports.read = ctx => {
     DELETE /api/posts/:id
  */
 exports.remove = ctx => {
-  const { id } = ctx.request.body;
+  const { id } = ctx.params;
   // 해당 ID의 index를 찾는다.
   const index = posts.findIndex(p => p.id.toString() === id);
 
@@ -77,7 +83,7 @@ exports.remove = ctx => {
     {title, body}
  */
 exports.replace = ctx => {
-  const { id } = ctx.request.body;
+  const { id } = ctx.params;
   const index = posts.findIndex(p => p.id.toString() === id);
 
   if (index === -1) {
@@ -103,7 +109,7 @@ exports.replace = ctx => {
     {title, body}
  */
 exports.update = ctx => {
-  const { id } = ctx.request.body;
+  const { id } = ctx.params;
   const index = posts.findIndex(p => p.id.toString() === id);
 
   if (index === -1) {
