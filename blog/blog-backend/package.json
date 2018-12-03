@@ -1,0 +1,12 @@
+{
+  "name": "blog-backend",
+  "version": "1.0.0",
+  "description": "This is backend API server for blog service",
+  "main": "index.js",
+  "author": "robin jang",
+  "license": "MIT",
+  "dependencies": {
+    "eslint": "^5.9.0",
+    "koa": "^2.6.2"
+  }
+}
