@@ -10,7 +10,7 @@ import { Provider } from "react-redux";
 
 const store = createStore(
   modules,
-  window.devToolsExtention && window.devToolsExtention()
+  window.devToolsExtension && window.devToolsExtension()
 );
 ReactDOM.render(
   <Provider store={store}>

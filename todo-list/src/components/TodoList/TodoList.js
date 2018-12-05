@@ -2,32 +2,26 @@ import React, { Component } from "react";
 import TodoItem from "../TodoItem";
 
 class TodoList extends Component {
-shouldComponentUpdate(nextProps, nextState){
+  shouldComponentUpdate(nextProps, nextState) {
     return this.props.todos !== nextProps.todos;
-}
+  }
   render() {
     const { todos, onToggle, onRemove, onTriggerEdit } = this.props;
     // const { todos, onToggle, onRemove, onTriggerEdit, onEdit } = this.props;
     const todoList = todos.map(todo => (
       <TodoItem
-        key={todo.id}
-        done={todo.done}
+        key={todo.get("id")}
+        done={todo.get("done")}
         onToggle={() => {
-          onToggle(todo.id);
+          onToggle(todo.get("id"));
         }}
         onRemove={() => {
-          onRemove(todo.id);
+          onRemove(todo.get("id"));
         }}
         onTriggerEdit={() => {
           onTriggerEdit(todo.id);
-        }}
-        // onEdit={
-        //     ()=>{
-        //         onEdit(todo.id)
-        //     }
-        // }
-      >
-        {todo.text}
+        }}>
+        {todo.get("text")}
       </TodoItem>
     ));
     return <div>{todoList}</div>;
