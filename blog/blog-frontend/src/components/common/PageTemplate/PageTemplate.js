@@ -1,11 +1,14 @@
 import React from "react";
 import styles from "./PageTemplate.scss";
 import classNames from "classnames";
+import Header from 'components/common/Header'
 
 const cx = classNames.bind(styles);
 
 const PageTemplate = () => (
-  <div className={cx("page-template")}>PageTemplate</div>
+  <div className={cx("page-template")}>
+    <Header></Header>
+  </div>
 );
 
 export default PageTemplate;
